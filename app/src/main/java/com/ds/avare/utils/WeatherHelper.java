@@ -383,7 +383,7 @@ public class WeatherHelper {
         weather = weather.replaceAll("/OV", "/OV" + (translate ? "(Location)" : ""));
         weather = weather.replaceAll("/TM", " /TM" + (translate ? "(Time UTC)" : ""));
         weather = weather.replaceAll("/FL", " /FL" + (translate ? "(Altimeter MSL)" : ""));
-        weather = weather.replaceAll("UNKN", "UNKN" + (translate ? "(Unknown) " : ""));
+        weather = weather.replaceAll("UNKN", " UNKN" + (translate ? "(Unknown) " : ""));
         weather = weather.replaceAll("DURC", "DURC" + (translate ? "(During Climb)" : ""));
         weather = weather.replaceAll("DURD", "DURD" + (translate ? "(During Descent)" : ""));
         weather = weather.replaceAll("DURGD", "DURGD" + (translate ? "(During Descent)" : ""));
