@@ -377,8 +377,8 @@ public class WeatherHelper {
      */
     public static String formatPirepHTML(String weather, boolean translate) {
         weather = weather.replaceAll("ARP", "ARP" + (translate ? "(Airline Report)" : ""));
-        /** search UA<space> so AIREPs for UAL don't translate to UA(Upper Air)L */
-        weather = weather.replaceAll("UA ", "UA" + (translate ? "(Upper Air) " : ""));
+        /** search <space>UA<space> so AIREPs for UAL don't translate to UA(Upper Air)L and SQUALLS and UUA */
+        weather = weather.replaceAll(" UA ", " UA" + (translate ? "(Upper Air) " : ""));
         weather = weather.replaceAll("UUA", "<font color='#ff2a00'>UUA" + (translate ? "(Urgent Upper Air)" : "") + "</font>");
         weather = weather.replaceAll("/OV", "/OV" + (translate ? "(Location)" : ""));
         weather = weather.replaceAll("/TM", " /TM" + (translate ? "(Time UTC)" : ""));
