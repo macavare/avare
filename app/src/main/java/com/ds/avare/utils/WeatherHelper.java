@@ -378,15 +378,16 @@ public class WeatherHelper {
     public static String formatPirepHTML(String weather, boolean translate) {
         weather = weather.replaceAll("ARP", "ARP" + (translate ? "(Airline Report)" : ""));
         /** search UA<space> so AIREPs for UAL don't translate to UA(Upper Air)L */
-        weather = weather.replaceAll("UA ", "UA" + (translate ? "(Upper Air)" : ""));
+        weather = weather.replaceAll("UA ", "UA" + (translate ? "(Upper Air) " : ""));
         weather = weather.replaceAll("UUA", "<font color='#ff2a00'>UUA" + (translate ? "(Urgent Upper Air)" : "") + "</font>");
         weather = weather.replaceAll("/OV", "/OV" + (translate ? "(Location)" : ""));
         weather = weather.replaceAll("/TM", " /TM" + (translate ? "(Time UTC)" : ""));
         weather = weather.replaceAll("/FL", " /FL" + (translate ? "(Altimeter MSL)" : ""));
         weather = weather.replaceAll("UNKN", " UNKN" + (translate ? "(Unknown) " : ""));
-        weather = weather.replaceAll("DURC", "DURC" + (translate ? "(During Climb)" : ""));
-        weather = weather.replaceAll("DURD", "DURD" + (translate ? "(During Descent)" : ""));
-        weather = weather.replaceAll("DURGD", "DURGD" + (translate ? "(During Descent)" : ""));
+        weather = weather.replaceAll("DURC", " DURC" + (translate ? "(During Climb)" : ""));
+        weather = weather.replaceAll("DURGC", " DURGC" + (translate ? "(During Climb)" : ""));
+        weather = weather.replaceAll("DURD", " DURD" + (translate ? "(During Descent)" : ""));
+        weather = weather.replaceAll("DURGD", " DURGD" + (translate ? "(During Descent)" : ""));
         weather = weather.replaceAll("/TP", " /TP" + (translate ? "(Aircraft Type)" : ""));
         weather = weather.replaceAll("/SK", " /SK" + (translate ? "(Sky Condition)" : ""));
         weather = weather.replaceAll("SKC", " SKC" + (translate ? "(Sky Clear)" : ""));
@@ -414,6 +415,8 @@ public class WeatherHelper {
         weather = weather.replaceAll("HVY", "<font color='#ff2a00'>HVY" + (translate ? "(Heavy)" : "") + "</font>");
         weather = weather.replaceAll("/RM", " /RM" + (translate ? "(Remarks)" : ""));
         weather = weather.replaceAll("/TB", " /TB" + (translate ? "(Turbulence)" : ""));
+        /** to remove any double spaces */
+        weather = weather.replaceAll("  ", " ");
 
         return weather;
     }
